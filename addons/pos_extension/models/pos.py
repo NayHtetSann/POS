@@ -15,7 +15,7 @@ class PosOrder(models.Model):
     def cancel_order(self):
         self.refund()
         self.state = 'cancel'
-        return True
+        return self.env['pos.order'].search([('state','=','done')])
 
 
     def _process_payment_lines(self, pos_order, order, pos_session, draft):

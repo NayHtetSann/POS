@@ -46,10 +46,6 @@ odoo.define('pos_extension.ActionButton', function (require) {
             this.$('.back').click(function(){
                 self.gui.back();
             });
-            this.$('.button.cancel').click(function(){
-                console.log('working here --->>>')
-                alert('show alert');
-            });
 
             var pos_orders = this.pos.pos_orders;
             this.render_list(pos_orders);
@@ -151,8 +147,11 @@ odoo.define('pos_extension.ActionButton', function (require) {
                   model: 'pos.order',
                   method: 'cancel_order',
                   args: [order],
-                  }).then(function () {
-                    alert('Success!')
+                  }).then(function (data) {
+//                  QWeb.render('ShowOrdersWidget', {
+//                        value: data.value
+//                    });
+                      window.location.reload()
                   });
             });
         },
@@ -162,7 +161,7 @@ odoo.define('pos_extension.ActionButton', function (require) {
     models.load_models({
         model: 'pos.order',
         fields: ['id', 'name', 'session_id', 'state', 'pos_reference', 'partner_id', 'amount_total','lines', 'amount_tax','sequence_number', 'fiscal_position_id', 'pricelist_id', 'create_date'],
-        domain: function(self){ return [['company_id','=',self.company.id]]; },
+        domain: function(self){ return [['state','=','done']]; },
         loaded: function (self, pos_orders) {
             var orders = [];
             for (var i in pos_orders){
