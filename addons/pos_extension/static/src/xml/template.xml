@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+   <t t-name="PaymentScreen-Paymentmethods">
+        <div class='paymentmethods'>
+            <t t-foreach="widget.pos.payment_methods" t-as="payment_method">
+                <div class="button paymentmethod" t-att-data-id="payment_method.id">
+                    <t t-esc="payment_method.name"/>
+                </div>
+            </t>
+            <p>TIP</p>
+            <t t-name='tip'>
+                <div>
+                    <div class='popup-input active'>
+                        <t t-esc='widget.inputbuffer'/>
+                        <t t-esc='widget.format_currency_no_symbol(0.0)'/>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

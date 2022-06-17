@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+     <template id="pos_tip_box" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/pos_extension/static/src/css/button.css"/>
+            <script type="text/javascript" src="/pos_extension/static/src/js/model.js"/>
+            <script type="text/javascript" src="/pos_extension/static/src/js/screen.js"/>
+            <script type="text/javascript" src="/pos_extension/static/src/js/order.js"/>
+        </xpath>
+    </template>
+  </data>
+</odoo>

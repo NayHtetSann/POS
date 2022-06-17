@@ -1,0 +1,12 @@
+Help me add point_of_sale/static/src/js/line 2148
+
+this.tip = 0;
+
+Help me add point_of_sale/static/src/js/line 2181
+
+set_tip_value: function(value){
+        this.order.assert_editable();
+        this.tip = round_di(parseFloat(value) || 0, this.pos.currency.decimals);
+        this.pos.send_current_order_to_customer_facing_display();
+        this.trigger('change',this);
+    },
